@@ -5,11 +5,10 @@
     <groupId>io.cloud</groupId>
     <artifactId>cloud-bookstore</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <modules>
         <module>cloud-author</module>
         <module>cloud-book</module>
-        <module>common</module>
         <module>cloud-commom</module>
         <module>cloud-file</module>
         <module>cloud-gateway</module>
@@ -20,7 +19,6 @@
         <module>cloud-pay</module>
         <module>cloud-search</module>
         <module>cloud-user</module>
-        <module>user-api</module>
     </modules>
     <name>cloud-bookstore</name>
     <description>cloud-bookstore</description>
