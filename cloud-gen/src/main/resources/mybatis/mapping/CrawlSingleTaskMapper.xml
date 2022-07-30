@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.bookstore.all.mapper.CrawlSingleTaskMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.all.entity.CrawlSingleTask">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="source_id" jdbcType="INTEGER" property="sourceId" />
+    <result column="source_book_id" jdbcType="VARCHAR" property="sourceBookId" />
+    <result column="task_status" jdbcType="TINYINT" property="taskStatus" />
+    <result column="exc_count" jdbcType="TINYINT" property="excCount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, source_id, source_book_id, task_status, exc_count, create_time
+  </sql>
+  <select id="selectByExample" parameterType="io.bookstore.all.entity.CrawlSingleTaskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from crawl_single_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from crawl_single_task
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from crawl_single_task
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="io.bookstore.all.entity.CrawlSingleTaskExample">
+    delete from crawl_single_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="io.bookstore.all.entity.CrawlSingleTask">
+    insert into crawl_single_task (id, source_id, source_book_id, 
+      task_status, exc_count, create_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{sourceId,jdbcType=INTEGER}, #{sourceBookId,jdbcType=VARCHAR}, 
+      #{taskStatus,jdbcType=TINYINT}, #{excCount,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="io.bookstore.all.entity.CrawlSingleTask">
+    insert into crawl_single_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sourceId != null">
+        source_id,
+      </if>
+      <if test="sourceBookId != null">
+        source_book_id,
+      </if>
+      <if test="taskStatus != null">
+        task_status,
+      </if>
+      <if test="excCount != null">
+        exc_count,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceBookId != null">
+        #{sourceBookId,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatus != null">
+        #{taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="excCount != null">
+        #{excCount,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="io.bookstore.all.entity.CrawlSingleTaskExample" resultType="java.lang.Long">
+    select count(*) from crawl_single_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update crawl_single_task
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.sourceId != null">
+        source_id = #{record.sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sourceBookId != null">
+        source_book_id = #{record.sourceBookId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskStatus != null">
+        task_status = #{record.taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.excCount != null">
+        exc_count = #{record.excCount,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update crawl_single_task
+    set id = #{record.id,jdbcType=BIGINT},
+      source_id = #{record.sourceId,jdbcType=INTEGER},
+      source_book_id = #{record.sourceBookId,jdbcType=VARCHAR},
+      task_status = #{record.taskStatus,jdbcType=TINYINT},
+      exc_count = #{record.excCount,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.all.entity.CrawlSingleTask">
+    update crawl_single_task
+    <set>
+      <if test="sourceId != null">
+        source_id = #{sourceId,jdbcType=INTEGER},
+      </if>
+      <if test="sourceBookId != null">
+        source_book_id = #{sourceBookId,jdbcType=VARCHAR},
+      </if>
+      <if test="taskStatus != null">
+        task_status = #{taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="excCount != null">
+        exc_count = #{excCount,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.all.entity.CrawlSingleTask">
+    update crawl_single_task
+    set source_id = #{sourceId,jdbcType=INTEGER},
+      source_book_id = #{sourceBookId,jdbcType=VARCHAR},
+      task_status = #{taskStatus,jdbcType=TINYINT},
+      exc_count = #{excCount,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
