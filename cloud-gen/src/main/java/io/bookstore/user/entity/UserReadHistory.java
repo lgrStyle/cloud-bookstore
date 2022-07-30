@@ -1,8 +1,9 @@
-package com.java2nb.novel.user.entity;
+package io.bookstore.user.entity;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
+
 import javax.annotation.Generated;
+import java.util.Date;
 
 public class UserReadHistory {
     @ApiModelProperty(value = "主键")

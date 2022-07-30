@@ -1,8 +1,9 @@
-package com.java2nb.novel.book.entity;
+package io.bookstore.book.entity;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
+
 import javax.annotation.Generated;
+import java.util.Date;
 
 public class BookComment {
     @ApiModelProperty(value = "主键")

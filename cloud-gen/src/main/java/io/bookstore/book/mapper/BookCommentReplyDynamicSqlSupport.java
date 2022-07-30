@@ -1,10 +1,11 @@
-package com.java2nb.novel.book.mapper;
+package io.bookstore.book.mapper;
 
-import java.sql.JDBCType;
-import java.util.Date;
-import javax.annotation.Generated;
 import org.mybatis.dynamic.sql.SqlColumn;
 import org.mybatis.dynamic.sql.SqlTable;
+
+import javax.annotation.Generated;
+import java.sql.JDBCType;
+import java.util.Date;
 
 public final class BookCommentReplyDynamicSqlSupport {
     @Generated("org.mybatis.generator.api.MyBatisGenerator")

@@ -1,19 +1,7 @@
-package io.bookstore.user.mapper;
+package io.bookstore.book.mapper;
 
-import static io.bookstore.user.mapper.BookScreenBulletDynamicSqlSupport.*;
-import static org.mybatis.dynamic.sql.SqlBuilder.*;
-
-import io.bookstore.user.entity.BookScreenBullet;
-import java.util.List;
-import javax.annotation.Generated;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import io.bookstore.all.entity.BookScreenBullet;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.mybatis.dynamic.sql.SqlBuilder;
 import org.mybatis.dynamic.sql.delete.DeleteDSL;
@@ -29,6 +17,12 @@ import org.mybatis.dynamic.sql.update.MyBatis3UpdateModelAdapter;
 import org.mybatis.dynamic.sql.update.UpdateDSL;
 import org.mybatis.dynamic.sql.update.render.UpdateStatementProvider;
 import org.mybatis.dynamic.sql.util.SqlProviderAdapter;
+
+import javax.annotation.Generated;
+import java.util.List;
+
+import static io.bookstore.all.mapper.BookScreenBulletDynamicSqlSupport.*;
+import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
 
 @Mapper
 public interface BookScreenBulletMapper {

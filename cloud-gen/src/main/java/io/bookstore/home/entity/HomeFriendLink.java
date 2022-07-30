@@ -1,8 +1,9 @@
-package com.java2nb.novel.home.entity;
+package io.bookstore.home.entity;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
+
 import javax.annotation.Generated;
+import java.util.Date;
 
 public class HomeFriendLink {
     @ApiModelProperty(value = "主键")

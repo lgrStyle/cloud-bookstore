@@ -1,19 +1,7 @@
-package com.java2nb.novel.author.mapper;
+package io.bookstore.author.mapper;
 
-import static com.java2nb.novel.author.mapper.AuthorCodeDynamicSqlSupport.*;
-import static org.mybatis.dynamic.sql.SqlBuilder.*;
-
-import com.java2nb.novel.author.entity.AuthorCode;
-import java.util.List;
-import javax.annotation.Generated;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import io.bookstore.all.entity.AuthorCode;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.mybatis.dynamic.sql.SqlBuilder;
 import org.mybatis.dynamic.sql.delete.DeleteDSL;
@@ -29,6 +17,12 @@ import org.mybatis.dynamic.sql.update.MyBatis3UpdateModelAdapter;
 import org.mybatis.dynamic.sql.update.UpdateDSL;
 import org.mybatis.dynamic.sql.update.render.UpdateStatementProvider;
 import org.mybatis.dynamic.sql.util.SqlProviderAdapter;
+
+import javax.annotation.Generated;
+import java.util.List;
+
+import static io.bookstore.all.mapper.AuthorCodeDynamicSqlSupport.*;
+import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
 
 @Mapper
 public interface AuthorCodeMapper {

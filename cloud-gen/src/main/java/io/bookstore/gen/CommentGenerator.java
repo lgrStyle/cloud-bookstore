@@ -1,4 +1,4 @@
-package com.java2nb.novel.gen;
+package io.bookstore.gen;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

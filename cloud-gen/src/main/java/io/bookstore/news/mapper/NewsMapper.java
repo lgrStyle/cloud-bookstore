@@ -1,6 +1,6 @@
 package io.bookstore.news.mapper;
 
-import com.java2nb.novel.news.entity.News;
+import io.bookstore.all.entity.News;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.mybatis.dynamic.sql.SqlBuilder;
@@ -21,7 +21,7 @@ import org.mybatis.dynamic.sql.util.SqlProviderAdapter;
 import javax.annotation.Generated;
 import java.util.List;
 
-import static com.java2nb.novel.news.mapper.NewsDynamicSqlSupport.*;
+import static io.bookstore.all.mapper.NewsDynamicSqlSupport.*;
 import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
 
 @Mapper
@@ -55,7 +55,7 @@ public interface NewsMapper {
         @Result(column="create_user_id", property="createUserId", jdbcType=JdbcType.BIGINT),
         @Result(column="update_time", property="updateTime", jdbcType=JdbcType.TIMESTAMP),
         @Result(column="update_user_id", property="updateUserId", jdbcType=JdbcType.BIGINT),
-        @Result(column="content", property="content", jdbcType=JdbcType.VARCHAR)
+        @Result(column="content", property="content", jdbcType=JdbcType.LONGVARCHAR)
     })
     List<News> selectMany(SelectStatementProvider selectStatement);
 

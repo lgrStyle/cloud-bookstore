@@ -1,6 +1,7 @@
-package com.java2nb.novel.book.entity;
+package io.bookstore.book.entity;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import javax.annotation.Generated;
 
 public class BookContent {

@@ -1,10 +1,11 @@
-package com.java2nb.novel.pay.mapper;
+package io.bookstore.pay.mapper;
 
-import java.sql.JDBCType;
-import java.util.Date;
-import javax.annotation.Generated;
 import org.mybatis.dynamic.sql.SqlColumn;
 import org.mybatis.dynamic.sql.SqlTable;
+
+import javax.annotation.Generated;
+import java.sql.JDBCType;
+import java.util.Date;
 
 public final class PayLogDynamicSqlSupport {
     @Generated("org.mybatis.generator.api.MyBatisGenerator")

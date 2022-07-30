@@ -1,6 +1,6 @@
 package io.bookstore.news.mapper;
 
-import com.java2nb.novel.news.entity.NewsCategory;
+import io.bookstore.all.entity.NewsCategory;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.mybatis.dynamic.sql.SqlBuilder;
@@ -21,7 +21,7 @@ import org.mybatis.dynamic.sql.util.SqlProviderAdapter;
 import javax.annotation.Generated;
 import java.util.List;
 
-import static com.java2nb.novel.news.mapper.NewsCategoryDynamicSqlSupport.*;
+import static io.bookstore.all.mapper.NewsCategoryDynamicSqlSupport.*;
 import static org.mybatis.dynamic.sql.SqlBuilder.isEqualTo;
 
 @Mapper

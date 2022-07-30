@@ -1,9 +1,10 @@
-package com.java2nb.novel.book.mapper;
+package io.bookstore.book.mapper;
 
-import java.sql.JDBCType;
-import javax.annotation.Generated;
 import org.mybatis.dynamic.sql.SqlColumn;
 import org.mybatis.dynamic.sql.SqlTable;
+
+import javax.annotation.Generated;
+import java.sql.JDBCType;
 
 public final class BookContentDynamicSqlSupport {
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
@@ -24,7 +25,7 @@ public final class BookContentDynamicSqlSupport {
 
         public final SqlColumn<Long> indexId = column("index_id", JDBCType.BIGINT);
 
-        public final SqlColumn<String> content = column("content", JDBCType.VARCHAR);
+        public final SqlColumn<String> content = column("content", JDBCType.LONGVARCHAR);
 
         public BookContent() {
             super("book_content");

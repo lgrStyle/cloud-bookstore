@@ -1,8 +1,9 @@
-package com.java2nb.novel.pay.entity;
+package io.bookstore.pay.entity;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
+
 import javax.annotation.Generated;
+import java.util.Date;
 
 public class PayLog {
     @ApiModelProperty(value = "主键")

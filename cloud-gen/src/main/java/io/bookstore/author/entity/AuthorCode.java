@@ -1,8 +1,9 @@
-package com.java2nb.novel.author.entity;
+package io.bookstore.author.entity;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
+
 import javax.annotation.Generated;
+import java.util.Date;
 
 public class AuthorCode {
     @ApiModelProperty(value = "主键")
