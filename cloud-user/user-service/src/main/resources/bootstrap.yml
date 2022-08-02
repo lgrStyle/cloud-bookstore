@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        ext-config[0]:
+          data-id: user-service.yml
+          group: user-service
+          refresh: true
