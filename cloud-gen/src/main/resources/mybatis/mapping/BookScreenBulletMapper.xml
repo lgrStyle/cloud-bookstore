@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.common.all.mapper.BookScreenBulletMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.BookScreenBullet">
+<mapper namespace="io.bookstore.gen.all.mapper.BookScreenBulletMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.gen.all.entity.BookScreenBullet">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="content_id" jdbcType="BIGINT" property="contentId" />
     <result column="screen_bullet" jdbcType="VARCHAR" property="screenBullet" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     id, content_id, screen_bullet, create_time
   </sql>
-  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.BookScreenBulletExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.gen.all.entity.BookScreenBulletExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,19 +92,19 @@
     delete from book_screen_bullet
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.BookScreenBulletExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.gen.all.entity.BookScreenBulletExample">
     delete from book_screen_bullet
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.common.all.entity.BookScreenBullet">
+  <insert id="insert" parameterType="io.bookstore.gen.all.entity.BookScreenBullet">
     insert into book_screen_bullet (id, content_id, screen_bullet, 
       create_time)
     values (#{id,jdbcType=BIGINT}, #{contentId,jdbcType=BIGINT}, #{screenBullet,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.BookScreenBullet">
+  <insert id="insertSelective" parameterType="io.bookstore.gen.all.entity.BookScreenBullet">
     insert into book_screen_bullet
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -135,7 +135,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.common.all.entity.BookScreenBulletExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.gen.all.entity.BookScreenBulletExample" resultType="java.lang.Long">
     select count(*) from book_screen_bullet
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -171,7 +171,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.BookScreenBullet">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.gen.all.entity.BookScreenBullet">
     update book_screen_bullet
     <set>
       <if test="contentId != null">
@@ -186,7 +186,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.BookScreenBullet">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.gen.all.entity.BookScreenBullet">
     update book_screen_bullet
     set content_id = #{contentId,jdbcType=BIGINT},
       screen_bullet = #{screenBullet,jdbcType=VARCHAR},

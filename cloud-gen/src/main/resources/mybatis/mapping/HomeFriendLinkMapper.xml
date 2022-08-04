@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.common.all.mapper.HomeFriendLinkMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.HomeFriendLink">
+<mapper namespace="io.bookstore.gen.all.mapper.HomeFriendLinkMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.gen.all.entity.HomeFriendLink">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="link_name" jdbcType="VARCHAR" property="linkName" />
     <result column="link_url" jdbcType="VARCHAR" property="linkUrl" />
@@ -74,7 +74,7 @@
     id, link_name, link_url, sort, is_open, create_user_id, create_time, update_user_id, 
     update_time
   </sql>
-  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.HomeFriendLinkExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.gen.all.entity.HomeFriendLinkExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -98,13 +98,13 @@
     delete from home_friend_link
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.HomeFriendLinkExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.gen.all.entity.HomeFriendLinkExample">
     delete from home_friend_link
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.common.all.entity.HomeFriendLink">
+  <insert id="insert" parameterType="io.bookstore.gen.all.entity.HomeFriendLink">
     insert into home_friend_link (id, link_name, link_url, 
       sort, is_open, create_user_id, 
       create_time, update_user_id, update_time
@@ -114,7 +114,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.HomeFriendLink">
+  <insert id="insertSelective" parameterType="io.bookstore.gen.all.entity.HomeFriendLink">
     insert into home_friend_link
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -175,7 +175,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.common.all.entity.HomeFriendLinkExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.gen.all.entity.HomeFriendLinkExample" resultType="java.lang.Long">
     select count(*) from home_friend_link
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -231,7 +231,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.HomeFriendLink">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.gen.all.entity.HomeFriendLink">
     update home_friend_link
     <set>
       <if test="linkName != null">
@@ -261,7 +261,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.HomeFriendLink">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.gen.all.entity.HomeFriendLink">
     update home_friend_link
     set link_name = #{linkName,jdbcType=VARCHAR},
       link_url = #{linkUrl,jdbcType=VARCHAR},

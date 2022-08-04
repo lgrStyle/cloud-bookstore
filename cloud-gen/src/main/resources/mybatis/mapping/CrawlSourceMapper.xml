@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.common.all.mapper.CrawlSourceMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.CrawlSource">
+<mapper namespace="io.bookstore.gen.all.mapper.CrawlSourceMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.gen.all.entity.CrawlSource">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="source_name" jdbcType="VARCHAR" property="sourceName" />
     <result column="source_status" jdbcType="TINYINT" property="sourceStatus" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="io.bookstore.common.all.entity.CrawlSource">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="io.bookstore.gen.all.entity.CrawlSource">
     <result column="crawl_rule" jdbcType="LONGVARCHAR" property="crawlRule" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -75,7 +75,7 @@
   <sql id="Blob_Column_List">
     crawl_rule
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="io.bookstore.common.all.entity.CrawlSourceExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="io.bookstore.gen.all.entity.CrawlSourceExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -91,7 +91,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.CrawlSourceExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.gen.all.entity.CrawlSourceExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -117,13 +117,13 @@
     delete from crawl_source
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.CrawlSourceExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.gen.all.entity.CrawlSourceExample">
     delete from crawl_source
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.common.all.entity.CrawlSource">
+  <insert id="insert" parameterType="io.bookstore.gen.all.entity.CrawlSource">
     insert into crawl_source (id, source_name, source_status, 
       create_time, update_time, crawl_rule
       )
@@ -131,7 +131,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{crawlRule,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.CrawlSource">
+  <insert id="insertSelective" parameterType="io.bookstore.gen.all.entity.CrawlSource">
     insert into crawl_source
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -174,7 +174,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.common.all.entity.CrawlSourceExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.gen.all.entity.CrawlSourceExample" resultType="java.lang.Long">
     select count(*) from crawl_source
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -229,7 +229,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.CrawlSource">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.gen.all.entity.CrawlSource">
     update crawl_source
     <set>
       <if test="sourceName != null">
@@ -250,7 +250,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="io.bookstore.common.all.entity.CrawlSource">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="io.bookstore.gen.all.entity.CrawlSource">
     update crawl_source
     set source_name = #{sourceName,jdbcType=VARCHAR},
       source_status = #{sourceStatus,jdbcType=TINYINT},
@@ -259,7 +259,7 @@
       crawl_rule = #{crawlRule,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.CrawlSource">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.gen.all.entity.CrawlSource">
     update crawl_source
     set source_name = #{sourceName,jdbcType=VARCHAR},
       source_status = #{sourceStatus,jdbcType=TINYINT},
