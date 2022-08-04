@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.all.mapper.UserFeedbackMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.all.entity.UserFeedback">
+<mapper namespace="io.bookstore.common.all.mapper.UserFeedbackMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.UserFeedback">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="content" jdbcType="VARCHAR" property="content" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     id, user_id, content, create_time
   </sql>
-  <select id="selectByExample" parameterType="io.bookstore.all.entity.UserFeedbackExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.UserFeedbackExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,19 +92,19 @@
     delete from user_feedback
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.all.entity.UserFeedbackExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.UserFeedbackExample">
     delete from user_feedback
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.all.entity.UserFeedback">
+  <insert id="insert" parameterType="io.bookstore.common.all.entity.UserFeedback">
     insert into user_feedback (id, user_id, content, 
       create_time)
     values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.all.entity.UserFeedback">
+  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.UserFeedback">
     insert into user_feedback
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -135,7 +135,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.all.entity.UserFeedbackExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.common.all.entity.UserFeedbackExample" resultType="java.lang.Long">
     select count(*) from user_feedback
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -171,7 +171,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.all.entity.UserFeedback">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.UserFeedback">
     update user_feedback
     <set>
       <if test="userId != null">
@@ -186,7 +186,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.all.entity.UserFeedback">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.UserFeedback">
     update user_feedback
     set user_id = #{userId,jdbcType=BIGINT},
       content = #{content,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.all.mapper.BookCommentReplyMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.all.entity.BookCommentReply">
+<mapper namespace="io.bookstore.common.all.mapper.BookCommentReplyMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.BookCommentReply">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="comment_id" jdbcType="BIGINT" property="commentId" />
     <result column="reply_content" jdbcType="VARCHAR" property="replyContent" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, comment_id, reply_content, audit_status, create_time, create_user_id
   </sql>
-  <select id="selectByExample" parameterType="io.bookstore.all.entity.BookCommentReplyExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.BookCommentReplyExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,13 +94,13 @@
     delete from book_comment_reply
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.all.entity.BookCommentReplyExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.BookCommentReplyExample">
     delete from book_comment_reply
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.all.entity.BookCommentReply">
+  <insert id="insert" parameterType="io.bookstore.common.all.entity.BookCommentReply">
     insert into book_comment_reply (id, comment_id, reply_content, 
       audit_status, create_time, create_user_id
       )
@@ -108,7 +108,7 @@
       #{auditStatus,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.all.entity.BookCommentReply">
+  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.BookCommentReply">
     insert into book_comment_reply
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.all.entity.BookCommentReplyExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.common.all.entity.BookCommentReplyExample" resultType="java.lang.Long">
     select count(*) from book_comment_reply
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -195,7 +195,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.all.entity.BookCommentReply">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.BookCommentReply">
     update book_comment_reply
     <set>
       <if test="commentId != null">
@@ -216,7 +216,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.all.entity.BookCommentReply">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.BookCommentReply">
     update book_comment_reply
     set comment_id = #{commentId,jdbcType=BIGINT},
       reply_content = #{replyContent,jdbcType=VARCHAR},

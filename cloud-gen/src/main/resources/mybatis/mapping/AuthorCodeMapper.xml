@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.all.mapper.AuthorCodeMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.all.entity.AuthorCode">
+<mapper namespace="io.bookstore.common.all.mapper.AuthorCodeMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.AuthorCode">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="invite_code" jdbcType="VARCHAR" property="inviteCode" />
     <result column="validity_time" jdbcType="TIMESTAMP" property="validityTime" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, invite_code, validity_time, is_use, create_time, create_user_id
   </sql>
-  <select id="selectByExample" parameterType="io.bookstore.all.entity.AuthorCodeExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.AuthorCodeExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,13 +94,13 @@
     delete from author_code
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.all.entity.AuthorCodeExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.AuthorCodeExample">
     delete from author_code
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.all.entity.AuthorCode">
+  <insert id="insert" parameterType="io.bookstore.common.all.entity.AuthorCode">
     insert into author_code (id, invite_code, validity_time, 
       is_use, create_time, create_user_id
       )
@@ -108,7 +108,7 @@
       #{isUse,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.all.entity.AuthorCode">
+  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.AuthorCode">
     insert into author_code
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.all.entity.AuthorCodeExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.common.all.entity.AuthorCodeExample" resultType="java.lang.Long">
     select count(*) from author_code
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -195,7 +195,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.all.entity.AuthorCode">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.AuthorCode">
     update author_code
     <set>
       <if test="inviteCode != null">
@@ -216,7 +216,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.all.entity.AuthorCode">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.AuthorCode">
     update author_code
     set invite_code = #{inviteCode,jdbcType=VARCHAR},
       validity_time = #{validityTime,jdbcType=TIMESTAMP},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.all.mapper.CrawlSingleTaskMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.all.entity.CrawlSingleTask">
+<mapper namespace="io.bookstore.common.all.mapper.CrawlSingleTaskMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.CrawlSingleTask">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="source_id" jdbcType="INTEGER" property="sourceId" />
     <result column="source_book_id" jdbcType="VARCHAR" property="sourceBookId" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, source_id, source_book_id, task_status, exc_count, create_time
   </sql>
-  <select id="selectByExample" parameterType="io.bookstore.all.entity.CrawlSingleTaskExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.CrawlSingleTaskExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,13 +94,13 @@
     delete from crawl_single_task
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.all.entity.CrawlSingleTaskExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.CrawlSingleTaskExample">
     delete from crawl_single_task
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.all.entity.CrawlSingleTask">
+  <insert id="insert" parameterType="io.bookstore.common.all.entity.CrawlSingleTask">
     insert into crawl_single_task (id, source_id, source_book_id, 
       task_status, exc_count, create_time
       )
@@ -108,7 +108,7 @@
       #{taskStatus,jdbcType=TINYINT}, #{excCount,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.all.entity.CrawlSingleTask">
+  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.CrawlSingleTask">
     insert into crawl_single_task
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.all.entity.CrawlSingleTaskExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.common.all.entity.CrawlSingleTaskExample" resultType="java.lang.Long">
     select count(*) from crawl_single_task
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -195,7 +195,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.all.entity.CrawlSingleTask">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.CrawlSingleTask">
     update crawl_single_task
     <set>
       <if test="sourceId != null">
@@ -216,7 +216,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.all.entity.CrawlSingleTask">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.CrawlSingleTask">
     update crawl_single_task
     set source_id = #{sourceId,jdbcType=INTEGER},
       source_book_id = #{sourceBookId,jdbcType=VARCHAR},

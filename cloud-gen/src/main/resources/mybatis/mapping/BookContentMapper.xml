@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.all.mapper.BookContentMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.all.entity.BookContent">
+<mapper namespace="io.bookstore.common.all.mapper.BookContentMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.BookContent">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="index_id" jdbcType="BIGINT" property="indexId" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="io.bookstore.all.entity.BookContent">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="io.bookstore.common.all.entity.BookContent">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -72,7 +72,7 @@
   <sql id="Blob_Column_List">
     content
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="io.bookstore.all.entity.BookContentExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="io.bookstore.common.all.entity.BookContentExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -88,7 +88,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="io.bookstore.all.entity.BookContentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.BookContentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -114,19 +114,19 @@
     delete from book_content
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.all.entity.BookContentExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.BookContentExample">
     delete from book_content
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.all.entity.BookContent">
+  <insert id="insert" parameterType="io.bookstore.common.all.entity.BookContent">
     insert into book_content (id, index_id, content
       )
     values (#{id,jdbcType=BIGINT}, #{indexId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.all.entity.BookContent">
+  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.BookContent">
     insert into book_content
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.all.entity.BookContentExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.common.all.entity.BookContentExample" resultType="java.lang.Long">
     select count(*) from book_content
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -191,7 +191,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.all.entity.BookContent">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.BookContent">
     update book_content
     <set>
       <if test="indexId != null">
@@ -203,13 +203,13 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="io.bookstore.all.entity.BookContent">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="io.bookstore.common.all.entity.BookContent">
     update book_content
     set index_id = #{indexId,jdbcType=BIGINT},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.all.entity.BookContent">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.BookContent">
     update book_content
     set index_id = #{indexId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}

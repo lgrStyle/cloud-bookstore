@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.bookstore.all.mapper.BookCategoryMapper">
-  <resultMap id="BaseResultMap" type="io.bookstore.all.entity.BookCategory">
+<mapper namespace="io.bookstore.common.all.mapper.BookCategoryMapper">
+  <resultMap id="BaseResultMap" type="io.bookstore.common.all.entity.BookCategory">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="work_direction" jdbcType="TINYINT" property="workDirection" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -72,7 +72,7 @@
   <sql id="Base_Column_List">
     id, work_direction, name, sort, create_user_id, create_time, update_user_id, update_time
   </sql>
-  <select id="selectByExample" parameterType="io.bookstore.all.entity.BookCategoryExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="io.bookstore.common.all.entity.BookCategoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -96,13 +96,13 @@
     delete from book_category
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="io.bookstore.all.entity.BookCategoryExample">
+  <delete id="deleteByExample" parameterType="io.bookstore.common.all.entity.BookCategoryExample">
     delete from book_category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.bookstore.all.entity.BookCategory">
+  <insert id="insert" parameterType="io.bookstore.common.all.entity.BookCategory">
     insert into book_category (id, work_direction, name, 
       sort, create_user_id, create_time, 
       update_user_id, update_time)
@@ -110,7 +110,7 @@
       #{sort,jdbcType=TINYINT}, #{createUserId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateUserId,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="io.bookstore.all.entity.BookCategory">
+  <insert id="insertSelective" parameterType="io.bookstore.common.all.entity.BookCategory">
     insert into book_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -165,7 +165,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.bookstore.all.entity.BookCategoryExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="io.bookstore.common.all.entity.BookCategoryExample" resultType="java.lang.Long">
     select count(*) from book_category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -217,7 +217,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.all.entity.BookCategory">
+  <update id="updateByPrimaryKeySelective" parameterType="io.bookstore.common.all.entity.BookCategory">
     update book_category
     <set>
       <if test="workDirection != null">
@@ -244,7 +244,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.bookstore.all.entity.BookCategory">
+  <update id="updateByPrimaryKey" parameterType="io.bookstore.common.all.entity.BookCategory">
     update book_category
     set work_direction = #{workDirection,jdbcType=TINYINT},
       name = #{name,jdbcType=VARCHAR},
