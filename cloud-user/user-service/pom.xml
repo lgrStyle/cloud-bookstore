@@ -14,8 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>io.cloud</groupId>
-            <artifactId>cloud-commom</artifactId>
-            <version>1.0.0</version>
+            <artifactId>user-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.cloud</groupId>
+            <artifactId>book-api</artifactId>
         </dependency>
 
         <dependency>

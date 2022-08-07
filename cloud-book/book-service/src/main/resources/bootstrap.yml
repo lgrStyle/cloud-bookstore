@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: book-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        ext‐config[0]:
+          data‐id: novel-jwt.yml
+          group: novel-common
+          refresh: true
+        ext‐config[1]:
+          data‐id: novel-redis.yml
+          group: novel-common
+          refresh: true
+        ext‐config[2]:
+          data‐id: book-service.yml
+          group: book-service
+          refresh: true

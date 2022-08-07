@@ -11,6 +11,11 @@
 
     <artifactId>user-api</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>io.cloud</groupId>
+            <artifactId>cloud-commom</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
