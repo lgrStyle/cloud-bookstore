@@ -15,6 +15,10 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
+feign:
+  httpclient:
+    enabled: true
+
 #关掉mq的健康检查，防止某些没有用到mq的服务启动报错，个别服务如需mq监控，单独开启
 management:
   health:
