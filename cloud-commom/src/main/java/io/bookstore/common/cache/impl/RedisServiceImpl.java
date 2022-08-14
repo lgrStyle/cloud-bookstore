@@ -9,13 +9,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author liguirong
+ */
 @ConditionalOnProperty(prefix = "spring.redis", name = "host")
 @RequiredArgsConstructor
 @Service
 public class RedisServiceImpl implements CacheService {
-    private StringRedisTemplate stringRedisTemplate;
+    private final StringRedisTemplate stringRedisTemplate;
 
-    private RedisTemplate redisTemplate;
+    private final RedisTemplate redisTemplate;
 
     @Override
     public String get(String key) {

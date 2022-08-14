@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2020/6/2
  */
 @Configuration
-@ConditionalOnProperty(prefix = "spring.rabbitmq", name = "host", matchIfMissing = false)
+@ConditionalOnProperty(prefix = "spring.rabbitmq", name = "host")
 public class RabbitConfig {
 
 

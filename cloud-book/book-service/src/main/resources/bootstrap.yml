@@ -7,7 +7,7 @@ spring:
     nacos:
       config:
         ext‐config[0]:
-          data‐id: novel-jwt.yml
+          data‐id: novel-rabbitmq.yml
           group: novel-common
           refresh: true
         ext‐config[1]:

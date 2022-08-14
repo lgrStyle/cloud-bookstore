@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.java2nb.novel.book.mapper.BookMapper">
+<mapper namespace="io.bookstore.book.mapper.BookMapper">
 
 
     <update id="addVisitCount" >
@@ -9,7 +9,7 @@
         where id = #{bookId}
     </update>
 
-    <select id="listRecBookByCatId" parameterType="int" resultType="com.java2nb.novel.book.entity.Book">
+    <select id="listRecBookByCatId" parameterType="int" resultType="io.bookstore.book.entity.Book">
         select id,pic_url,book_name,book_desc
         from book
         where cat_id = #{catId}
@@ -22,7 +22,7 @@
         where  id = #{bookId}
     </update>
 
-    <select id="queryNetworkPicBooks" resultType="com.java2nb.novel.book.entity.Book">
+    <select id="queryNetworkPicBooks" resultType="io.bookstore.book.entity.Book">
         select
         id,pic_url from book
         where pic_url like 'http%'
@@ -30,7 +30,7 @@
         limit #{limit}
     </select>
 
-    <select id="selectIdsByScoreAndRandom" parameterType="int" resultType="com.java2nb.novel.book.entity.Book">
+    <select id="selectIdsByScoreAndRandom" parameterType="int" resultType="io.bookstore.book.entity.Book">
 
        select id,book_name,author_name,pic_url,book_desc,score from book ORDER BY score,RAND() LIMIT #{limit};
    </select>
